@@ -1,0 +1,6 @@
+import warnings
+warnings.simplefilter('ignore', FutureWarning)
+
+from pandas import *
+beijing = read_csv('Beijing_PEK_2014.csv', skipinitialspace=True)
+beijing

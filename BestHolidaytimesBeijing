@@ -3,4 +3,15 @@ warnings.simplefilter('ignore', FutureWarning)
 
 from pandas import *
 beijing = read_csv('Beijing_PEK_2014.csv', skipinitialspace=True)
-beijing
+
+import datetime
+date = datetime.date.today()
+
+beijing['Date'] = to_datetime(beijing['Date'])
+beijing.index = beijing['Date']
+beijing['Mean TemperatureC'].plot()
+
+bestMonths = beijing.loc[datetime.date(2014,6,1):datetime.date(2014,8,31)]
+bestMonths['Mean TemperatureC'].plot()
+
+bestMonths[['Mean TemperatureC','Precipitationmm']].plot()
